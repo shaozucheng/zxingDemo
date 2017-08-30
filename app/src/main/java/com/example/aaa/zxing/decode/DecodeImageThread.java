@@ -6,7 +6,9 @@ import android.text.TextUtils;
 import com.example.aaa.zxing.utils.QrUtils;
 import com.google.zxing.Result;
 
-
+/**
+ * 解析图片线程处理
+ */
 public class DecodeImageThread implements Runnable {
     private static final int MAX_PICTURE_PIXEL = 256;
     private byte[] mData;

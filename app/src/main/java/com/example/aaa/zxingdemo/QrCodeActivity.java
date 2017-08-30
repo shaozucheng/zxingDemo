@@ -38,13 +38,10 @@ import com.example.aaa.zxing.utils.ResourceUtils;
 import com.example.aaa.zxing.view.QrCodeFinderView;
 import com.google.zxing.Result;
 
-
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-
-
 
 
 public class QrCodeActivity extends Activity implements Callback, OnClickListener {
@@ -115,8 +112,8 @@ public class QrCodeActivity extends Activity implements Callback, OnClickListene
 
     private void initView() {
         setTitle("扫一扫");
-     //   showRightMenu("照片", this);
-      //  showHomeUpIcon(0);
+        //   showRightMenu("照片", this);
+        //  showHomeUpIcon(0);
         mIvFlashLight = (ImageView) findViewById(R.id.qr_code_iv_flash_light);
         mTvFlashLightText = (TextView) findViewById(R.id.qr_code_tv_flash_light);
         mQrCodeFinderView = (QrCodeFinderView) findViewById(R.id.qr_code_view_finder);
@@ -387,7 +384,7 @@ public class QrCodeActivity extends Activity implements Callback, OnClickListene
                 }
             });
         } else {
-           // startActivity(SigninActivity.class);
+            // startActivity(SigninActivity.class);
             this.finish();
 //            mDecodeManager.showResultDialog(this, resultString, new DialogInterface.OnClickListener() {
 //                @Override
@@ -399,6 +396,12 @@ public class QrCodeActivity extends Activity implements Callback, OnClickListene
         }
     }
 
+    /**
+     * 处理选择图片后解析二维码
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (resultCode != RESULT_OK) {
@@ -431,6 +434,10 @@ public class QrCodeActivity extends Activity implements Callback, OnClickListene
         }
     }
 
+
+    /**
+     * 图片解码回调
+     */
     private DecodeImageCallback mDecodeImageCallback = new DecodeImageCallback() {
         @Override
         public void decodeSucceed(Result result) {
@@ -443,6 +450,9 @@ public class QrCodeActivity extends Activity implements Callback, OnClickListene
         }
     };
 
+    /**
+     * 相册中选择图片处理结果
+     */
     private static class WeakHandler extends Handler {
         private WeakReference<QrCodeActivity> mWeakQrCodeActivity;
         private DecodeManager mDecodeManager = new DecodeManager();

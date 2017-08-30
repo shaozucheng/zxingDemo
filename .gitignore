@@ -7,3 +7,14 @@
 /build
 /captures
 .externalNativeBuild
+.idea/vcs.xml
+bin/
+gen/
+obj/
+tmp/
+out/
+proguard/
+proguard_logs/
+*.class
+app/src/main/res/drawable/
+local.properties
